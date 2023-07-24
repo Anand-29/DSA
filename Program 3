@@ -1,18 +1,27 @@
-6//balancing paranthesis
+ //6//balancing paranthesis
 #include<stdio.h>
 #include<string.h>
 #define MAX 10
 char stack[MAX];
 int top=-1;
+
+//push the data into stack
 void push(char val){
     stack[++top]=val;
 }
+
+
+//peek for the top element
 char peek(){
     return stack[top];
 }
+
+//delete a data
 void pop(){
     top--;
 }
+
+//Driver
 int main(){
     printf("Enter the Expression:-\n");
     char s[MAX];
@@ -22,8 +31,15 @@ int main(){
             push(s[i]);
         else{
             char v=peek();
-            switch(v)
+            if(v=='{'){
                 pop();
+            }
+            else if(v=='('){
+                pop();
+            }
+            else if(v=='['){
+                pop();
+            }
             else{
                 top=MAX;
                 break;
