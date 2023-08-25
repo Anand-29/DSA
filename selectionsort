@@ -1,0 +1,28 @@
+#include<stdio.h>
+void selectionsort(int *a,int *n){
+    for(int i=0;i<*n-1;i++){
+        int select=a[i];
+        for(int j=i+1;j<*n;j++){
+            if(a[j]<a[select]){       //swap
+                a[select]=a[select]+a[j];
+                a[j]=a[select]-a[j];
+                a[select]=a[select]-a[j];
+            }
+        }
+    }
+}
+
+int main(){
+    int n;
+    printf("Enter the size of array:\n");
+    scanf("%d",&n);
+    int a[n];
+    printf("Enter the elements of array\n");
+    for(int i=0;i<n;i++){
+        scanf("%d",&a[i]);
+    }
+    selectionsort(a,&n);
+    for(int i=0;i<n;i++){
+        printf("%d",a[i]);
+    }
+}
